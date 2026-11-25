@@ -1,0 +1,12 @@
+
+NOMBRE DEL PROYECTO:
+Lapizito
+
+PROBLEMA:
+Actualmente, muchos estudiantes tienen dificultades para organizar sus actividades académicas, tareas, exámenes y proyectos. En ocasiones olvidan las fechas de entrega o no cuentan con una herramienta que les permita consultar sus pendientes de manera sencilla y organizada.
+
+OBJETIVO:
+Desarrollar una aplicación móvil que permita a los estudiantes organizar y administrar sus actividades académicas, facilitando el seguimiento de tareas, exámenes y proyectos mediante recordatorios y notificaciones.
+
+DESCRIPCIÓN:
+Lapizito es una aplicación móvil diseñada para ayudar a los estudiantes a mejorar su organización académica. La aplicación permitirá registrar tareas, consultar fechas importantes, organizar proyectos y administrar exámenes desde un mismo lugar. También contempla la integración con Google Classroom, calendarios y un sistema de recordatorios y notificaciones para que los estudiantes puedan mantenerse al día con sus responsabilidades escolares.
