@@ -4,7 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lapizito - Organiza tus estudios</title>
+
+    <title>Lapizito | Organiza tus estudios</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -13,188 +18,785 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background: #f5f3ff;
+            font-family: 'DM Sans', sans-serif;
             color: #292744;
+            background: white;
         }
 
-        header {
-            background: #6654d9;
+        :root {
+            --morado: #7563e9;
+            --morado-oscuro: #5142bb;
+            --lavanda: #f3f0ff;
+            --texto: #292744;
+            --gris: #77758b;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* NAVEGACIÓN */
+
+        .navbar {
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 3px 15px #0000000a;
+        }
+
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--morado);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: #65637a;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .nav-links a:hover {
+            color: var(--morado);
+        }
+
+        .nav-links .nav-contact {
+            background: var(--morado);
             color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+        }
+
+        /* PORTADA */
+
+        .hero {
+            background: linear-gradient(120deg, #faf9ff, #eeeaff);
+            padding: 85px 9%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 45px;
+        }
+
+        .etiqueta {
+            display: inline-block;
+            background: #e6e0ff;
+            color: var(--morado-oscuro);
+            padding: 9px 15px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(40px, 5vw, 58px);
+            line-height: 1.1;
+            color: var(--texto);
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: var(--morado);
+        }
+
+        .hero-text {
+            color: var(--gris);
+            font-size: 16px;
+            line-height: 1.9;
+            max-width: 500px;
+        }
+
+        .botones {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .boton-principal {
+            display: inline-block;
+            background: var(--morado);
+            color: white;
+            padding: 15px 24px;
+            border-radius: 11px;
+            font-weight: 700;
+            box-shadow: 0 8px 20px #7563e940;
+            transition: 0.3s;
+        }
+
+        .boton-principal:hover {
+            background: var(--morado-oscuro);
+            transform: translateY(-3px);
+        }
+
+        .boton-secundario {
+            color: var(--texto);
+            font-weight: 700;
+        }
+
+        /* VISTA DE LA APLICACIÓN */
+
+        .vista-app {
+            background: white;
             padding: 25px;
-            text-align: center;
+            border-radius: 22px;
+            box-shadow: 0 20px 55px #5142bb20;
+            border: 1px solid #ece9f9;
         }
 
-        header h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
+        .app-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
         }
 
-        .presentacion {
-            text-align: center;
-            padding: 65px 20px;
+        .app-header strong {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
         }
 
-        .presentacion h2 {
-            color: #6654d9;
-            font-size: 36px;
-            margin-bottom: 20px;
+        .avatar {
+            background: #e9e4ff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 20px;
         }
 
-        .presentacion p {
-            max-width: 750px;
-            margin: auto;
-            font-size: 18px;
-            line-height: 1.8;
-            color: #66647b;
-        }
-
-        .banner {
-            background: linear-gradient(120deg, #6654d9, #a697f4);
+        .saludo {
+            background: linear-gradient(120deg, #7563e9, #a697f4);
+            padding: 22px;
             color: white;
+            border-radius: 15px;
+            margin-bottom: 22px;
+        }
+
+        .saludo small {
+            opacity: .85;
+        }
+
+        .saludo h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 24px;
+            margin: 8px 0;
+        }
+
+        .saludo p {
+            font-size: 12px;
+        }
+
+        .actividad-titulo {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 14px;
+            font-size: 14px;
+        }
+
+        .actividad-titulo span {
+            color: var(--morado);
+            font-weight: bold;
+        }
+
+        .actividad {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 13px 0;
+            border-bottom: 1px solid #efedf5;
+        }
+
+        .actividad:last-child {
+            border-bottom: none;
+        }
+
+        .check {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #d9d2fa;
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        .check.completo {
+            background: var(--morado);
+            color: white;
+            border-color: var(--morado);
             text-align: center;
-            padding: 60px 20px;
-            margin: 20px auto;
-            width: 88%;
-            border-radius: 20px;
+            font-size: 12px;
         }
 
-        .banner h2 {
-            font-size: 32px;
-            margin-bottom: 15px;
+        .actividad-info {
+            flex: 1;
         }
 
-        .banner p {
-            font-size: 17px;
-            line-height: 1.7;
+        .actividad-info strong {
+            display: block;
+            font-size: 12px;
+            margin-bottom: 4px;
         }
+
+        .actividad-info small {
+            color: #9996ab;
+            font-size: 10px;
+        }
+
+        .estado {
+            font-size: 10px;
+            color: var(--morado-oscuro);
+            background: #efecff;
+            padding: 6px 8px;
+            border-radius: 7px;
+        }
+
+        /* INFORMACIÓN */
+
+        .nosotros {
+            padding: 85px 9%;
+            text-align: center;
+        }
+
+        .subtitulo {
+            color: var(--morado);
+            font-size: 12px;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+
+        .nosotros h2,
+        .beneficios h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 36px;
+            margin: 15px 0;
+            color: var(--texto);
+        }
+
+        .nosotros p {
+            max-width: 780px;
+            margin: auto;
+            color: var(--gris);
+            line-height: 1.9;
+        }
+
+        /* BENEFICIOS */
 
         .beneficios {
-            padding: 65px 8%;
+            background: #faf9ff;
+            padding: 85px 9%;
             text-align: center;
         }
 
-        .beneficios h2 {
-            font-size: 32px;
-            color: #6654d9;
-            margin-bottom: 35px;
+        .beneficios-intro {
+            color: var(--gris);
+            margin-bottom: 42px;
         }
 
-        .contenedor {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 25px;
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 23px;
+            text-align: left;
         }
 
         .tarjeta {
             background: white;
-            width: 270px;
-            padding: 30px 22px;
-            border-radius: 16px;
-            box-shadow: 0 5px 20px #29274412;
+            padding: 30px 25px;
+            border-radius: 17px;
+            border: 1px solid #eeecf7;
+            transition: .3s;
         }
 
-        .tarjeta .icono {
-            font-size: 38px;
-            margin-bottom: 15px;
+        .tarjeta:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px #5142bb12;
+        }
+
+        .icono {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            font-size: 25px;
+            background: #eeeaff;
+            margin-bottom: 20px;
         }
 
         .tarjeta h3 {
-            color: #6654d9;
-            margin-bottom: 15px;
+            color: var(--texto);
+            font-family: 'Outfit', sans-serif;
+            font-size: 19px;
+            margin-bottom: 12px;
         }
 
         .tarjeta p {
-            color: #77758b;
-            line-height: 1.7;
+            color: var(--gris);
+            font-size: 14px;
+            line-height: 1.8;
         }
+
+        /* INVITACIÓN */
+
+        .invitacion {
+            margin: 80px 9%;
+            padding: 65px 25px;
+            border-radius: 23px;
+            text-align: center;
+            color: white;
+            background: linear-gradient(120deg, #5142bb, #8b78f1);
+        }
+
+        .invitacion h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .invitacion p {
+            line-height: 1.8;
+            color: #eeebff;
+        }
+
+        .invitacion .boton-principal {
+            background: white;
+            color: var(--morado-oscuro);
+            margin-top: 25px;
+        }
+
+        /* CONTACTO */
+
+        .contacto {
+            background: #f7f6ff;
+            padding: 75px 9%;
+            text-align: center;
+        }
+
+        .contacto h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .contacto > p {
+            color: var(--gris);
+            margin-bottom: 35px;
+        }
+
+        .datos-contacto {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .dato {
+            background: white;
+            border: 1px solid #eeecf7;
+            padding: 23px;
+            border-radius: 13px;
+            min-width: 220px;
+        }
+
+        .dato strong {
+            display: block;
+            color: var(--morado);
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .dato span {
+            color: var(--texto);
+            font-size: 14px;
+        }
+
+        /* PIE DE PÁGINA */
 
         footer {
             background: #292744;
             color: white;
-            text-align: center;
-            padding: 25px;
+            padding: 30px 9%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        footer strong {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+        }
+
+        footer p {
+            color: #c5c2d8;
+            font-size: 12px;
+        }
+
+        /* ADAPTACIÓN A CELULARES */
+
+        @media (max-width: 850px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text {
+                margin: auto;
+            }
+
+            .botones {
+                justify-content: center;
+            }
+
+            .tarjetas {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            .nav-links {
+                gap: 13px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 60px 6%;
+            }
+
+            .hero h1 {
+                font-size: 39px;
+            }
+
+            .tarjetas {
+                grid-template-columns: 1fr;
+            }
+
+            .nosotros,
+            .beneficios {
+                padding: 65px 6%;
+            }
+
+            .nosotros h2,
+            .beneficios h2,
+            .invitacion h2 {
+                font-size: 29px;
+            }
+
+            .invitacion {
+                margin: 55px 5%;
+            }
+
+            footer {
+                justify-content: center;
+                text-align: center;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>Lapizito</h1>
-        <p>Organiza tus actividades, alcanza tus metas.</p>
+    <!-- NAVEGACIÓN -->
+
+    <header class="navbar">
+
+        <a href="#inicio" class="logo">✎ Lapizito</a>
+
+        <nav class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#beneficios">Beneficios</a>
+            <a href="#contacto" class="nav-contact">Contacto</a>
+        </nav>
+
     </header>
 
-    <section class="presentacion">
 
-        <h2>¡Haz que cada día cuente!</h2>
+    <!-- PORTADA -->
 
-        <p>
-            Lapizito es una aplicación móvil diseñada para
-            ayudar a los estudiantes a organizar sus actividades
-            académicas. Permite administrar tareas, exámenes
-            y proyectos escolares desde un mismo lugar,
-            facilitando el control de sus responsabilidades.
-        </p>
+    <section class="hero" id="inicio">
 
-    </section>
+        <div>
 
-    <section class="banner">
+            <span class="etiqueta">TU NUEVO COMPAÑERO ACADÉMICO</span>
 
-        <h2>Tu tiempo vale, ¡organízalo mejor!</h2>
+            <h1>
+                Tus estudios en orden,
+                <span>tus metas más cerca.</span>
+            </h1>
 
-        <p>
-            Mantén tus actividades escolares bajo control,
-            recuerda tus entregas y dedica más tiempo
-            a lo que realmente importa.
-        </p>
+            <p class="hero-text">
+                Organiza tus tareas, controla tus exámenes
+                y administra tus proyectos escolares.
+                Lapizito te ayuda a mantener todas tus
+                actividades académicas bajo control.
+            </p>
 
-    </section>
+            <div class="botones">
+                <a href="#beneficios" class="boton-principal">
+                    Descubre Lapizito →
+                </a>
 
-    <section class="beneficios">
-
-        <h2>¿Por qué utilizar Lapizito?</h2>
-
-        <div class="contenedor">
-
-            <div class="tarjeta">
-                <div class="icono">📚</div>
-                <h3>Organización</h3>
-                <p>
-                    Reúne tus tareas y proyectos escolares
-                    en un solo lugar para mantener todo
-                    organizado.
-                </p>
+                <a href="#nosotros" class="boton-secundario">
+                    Conoce el proyecto
+                </a>
             </div>
 
-            <div class="tarjeta">
-                <div class="icono">📅</div>
-                <h3>Control de fechas</h3>
-                <p>
-                    Consulta las fechas de tus exámenes
-                    y entregas para evitar olvidar
-                    tus responsabilidades.
-                </p>
+        </div>
+
+
+        <!-- REPRESENTACIÓN VISUAL DE LA APLICACIÓN -->
+
+        <div class="vista-app">
+
+            <div class="app-header">
+                <strong>Mi espacio académico</strong>
+                <div class="avatar">🎓</div>
             </div>
 
-            <div class="tarjeta">
-                <div class="icono">🔔</div>
-                <h3>Recordatorios</h3>
-                <p>
-                    Recibe avisos de tus actividades
-                    pendientes y administra mejor
-                    tu tiempo de estudio.
-                </p>
+            <div class="saludo">
+                <small>BIENVENIDO A LAPIZITO</small>
+                <h3>¡Hola, estudiante!</h3>
+                <p>Hoy es un buen día para avanzar con tus metas.</p>
+            </div>
+
+            <div class="actividad-titulo">
+                <strong>Mis actividades</strong>
+                <span>Ver todas →</span>
+            </div>
+
+            <div class="actividad">
+                <div class="check completo">✓</div>
+                <div class="actividad-info">
+                    <strong>Investigación de software</strong>
+                    <small>Actividad completada</small>
+                </div>
+                <span class="estado">Lista</span>
+            </div>
+
+            <div class="actividad">
+                <div class="check"></div>
+                <div class="actividad-info">
+                    <strong>Proyecto de programación</strong>
+                    <small>Entrega: 28 de noviembre</small>
+                </div>
+                <span class="estado">Pendiente</span>
+            </div>
+
+            <div class="actividad">
+                <div class="check"></div>
+                <div class="actividad-info">
+                    <strong>Estudiar para el examen</strong>
+                    <small>Entrega: 30 de noviembre</small>
+                </div>
+                <span class="estado">Pendiente</span>
+            </div>
+
+            <div class="actividad">
+                <div class="check"></div>
+                <div class="actividad-info">
+                    <strong>Preparar presentación</strong>
+                    <small>Entrega: 2 de diciembre</small>
+                </div>
+                <span class="estado">Pendiente</span>
             </div>
 
         </div>
 
     </section>
 
+
+    <!-- SOBRE EL PROYECTO -->
+
+    <section class="nosotros" id="nosotros">
+
+        <span class="subtitulo">CONOCE LAPIZITO</span>
+
+        <h2>Una forma más sencilla de organizarte</h2>
+
+        <p>
+            Lapizito es una propuesta de aplicación móvil
+            diseñada para facilitar la organización académica.
+            Busca reunir en un solo lugar las tareas, exámenes,
+            proyectos y fechas importantes. También contempla
+            recordatorios e integración con Google Classroom
+            y calendarios para mejorar la administración
+            del tiempo de los estudiantes.
+        </p>
+
+    </section>
+
+
+    <!-- BENEFICIOS -->
+
+    <section class="beneficios" id="beneficios">
+
+        <span class="subtitulo">TODO EN UN MISMO LUGAR</span>
+
+        <h2>¿Por qué elegir Lapizito?</h2>
+
+        <p class="beneficios-intro">
+            Herramientas pensadas para hacer más sencilla tu vida académica.
+        </p>
+
+        <div class="tarjetas">
+
+            <article class="tarjeta">
+                <div class="icono">📚</div>
+                <h3>Tareas organizadas</h3>
+                <p>
+                    Registra tus actividades y administra
+                    tus proyectos escolares desde un mismo lugar.
+                </p>
+            </article>
+
+            <article class="tarjeta">
+                <div class="icono">📅</div>
+                <h3>Control de exámenes</h3>
+                <p>
+                    Consulta tus fechas de evaluación
+                    y prepara tus actividades con anticipación.
+                </p>
+            </article>
+
+            <article class="tarjeta">
+                <div class="icono">🔔</div>
+                <h3>Recordatorios</h3>
+                <p>
+                    Mantente al tanto de tus próximas
+                    entregas y actividades pendientes.
+                </p>
+            </article>
+
+            <article class="tarjeta">
+                <div class="icono">📊</div>
+                <h3>Administración del tiempo</h3>
+                <p>
+                    Organiza tus responsabilidades
+                    y aprovecha mejor tus jornadas de estudio.
+                </p>
+            </article>
+
+            <article class="tarjeta">
+                <div class="icono">🎯</div>
+                <h3>Alcanza tus objetivos</h3>
+                <p>
+                    Lleva un seguimiento de tus pendientes
+                    y avanza paso a paso en tus metas.
+                </p>
+            </article>
+
+            <article class="tarjeta">
+                <div class="icono">🔗</div>
+                <h3>Integración académica</h3>
+                <p>
+                    El proyecto contempla conexión con Google
+                    Classroom y calendarios para facilitar
+                    la administración de tus actividades.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- INVITACIÓN -->
+
+    <section class="invitacion">
+
+        <h2>¡Es momento de organizar tu futuro!</h2>
+
+        <p>
+            Deja atrás el desorden y comienza a administrar
+            tus actividades escolares de una manera más sencilla.
+            Cada tarea cuenta para alcanzar tus metas.
+        </p>
+
+        <a href="#contacto" class="boton-principal">
+            Comienza ahora →
+        </a>
+
+    </section>
+
+
+    <!-- CONTACTO -->
+
+    <section class="contacto" id="contacto">
+
+        <h2>¿Quieres conocer más sobre Lapizito?</h2>
+
+        <p>
+            Ponte en contacto con nosotros.
+            Estaremos encantados de atenderte.
+        </p>
+
+        <div class="datos-contacto">
+
+            <div class="dato">
+                <strong>✉ CORREO ELECTRÓNICO</strong>
+                <span>contacto@lapizito.com</span>
+            </div>
+
+            <div class="dato">
+                <strong>☎ TELÉFONO</strong>
+                <span>618 123 4567</span>
+            </div>
+
+            <div class="dato">
+                <strong>📍 UBICACIÓN</strong>
+                <span>Durango, México</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PIE DE PÁGINA -->
+
     <footer>
-        <p>Lapizito © 2026 - Organización académica para estudiantes.</p>
+
+        <div>
+            <strong>✎ Lapizito</strong>
+            <p>Organiza tus actividades, alcanza tus metas.</p>
+        </div>
+
+        <p>© 2026 Lapizito. Todos los derechos reservados.</p>
+
     </footer>
 
 </body>
