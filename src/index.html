@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lapizito - Organización académica</title>
+    <title>Lapizito - Organiza tus estudios</title>
 
     <style>
         * {
@@ -22,42 +22,93 @@
         header {
             background: #6654d9;
             color: white;
-            padding: 30px;
+            padding: 25px;
             text-align: center;
         }
 
         header h1 {
-            font-size: 40px;
+            font-size: 38px;
             margin-bottom: 10px;
         }
 
         .presentacion {
             text-align: center;
-            padding: 100px 20px;
+            padding: 65px 20px;
         }
 
         .presentacion h2 {
             color: #6654d9;
-            font-size: 38px;
-            margin-bottom: 25px;
+            font-size: 36px;
+            margin-bottom: 20px;
         }
 
         .presentacion p {
             max-width: 750px;
-            margin: 0 auto;
+            margin: auto;
             font-size: 18px;
             line-height: 1.8;
             color: #66647b;
         }
 
-        .invitacion {
-            display: inline-block;
-            margin-top: 35px;
-            background: #6654d9;
+        .banner {
+            background: linear-gradient(120deg, #6654d9, #a697f4);
             color: white;
-            padding: 15px 28px;
-            border-radius: 10px;
-            font-weight: bold;
+            text-align: center;
+            padding: 60px 20px;
+            margin: 20px auto;
+            width: 88%;
+            border-radius: 20px;
+        }
+
+        .banner h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .banner p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .beneficios {
+            padding: 65px 8%;
+            text-align: center;
+        }
+
+        .beneficios h2 {
+            font-size: 32px;
+            color: #6654d9;
+            margin-bottom: 35px;
+        }
+
+        .contenedor {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .tarjeta {
+            background: white;
+            width: 270px;
+            padding: 30px 22px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px #29274412;
+        }
+
+        .tarjeta .icono {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .tarjeta h3 {
+            color: #6654d9;
+            margin-bottom: 15px;
+        }
+
+        .tarjeta p {
+            color: #77758b;
+            line-height: 1.7;
         }
 
         footer {
@@ -83,14 +134,61 @@
         <p>
             Lapizito es una aplicación móvil diseñada para
             ayudar a los estudiantes a organizar sus actividades
-            académicas de una manera sencilla. Permite administrar
-            tareas, exámenes y proyectos escolares desde un mismo
-            lugar, facilitando el control de sus responsabilidades
-            y mejorando la organización de su tiempo.
+            académicas. Permite administrar tareas, exámenes
+            y proyectos escolares desde un mismo lugar,
+            facilitando el control de sus responsabilidades.
         </p>
 
-        <div class="invitacion">
-            ¡Conoce una nueva forma de organizar tus estudios!
+    </section>
+
+    <section class="banner">
+
+        <h2>Tu tiempo vale, ¡organízalo mejor!</h2>
+
+        <p>
+            Mantén tus actividades escolares bajo control,
+            recuerda tus entregas y dedica más tiempo
+            a lo que realmente importa.
+        </p>
+
+    </section>
+
+    <section class="beneficios">
+
+        <h2>¿Por qué utilizar Lapizito?</h2>
+
+        <div class="contenedor">
+
+            <div class="tarjeta">
+                <div class="icono">📚</div>
+                <h3>Organización</h3>
+                <p>
+                    Reúne tus tareas y proyectos escolares
+                    en un solo lugar para mantener todo
+                    organizado.
+                </p>
+            </div>
+
+            <div class="tarjeta">
+                <div class="icono">📅</div>
+                <h3>Control de fechas</h3>
+                <p>
+                    Consulta las fechas de tus exámenes
+                    y entregas para evitar olvidar
+                    tus responsabilidades.
+                </p>
+            </div>
+
+            <div class="tarjeta">
+                <div class="icono">🔔</div>
+                <h3>Recordatorios</h3>
+                <p>
+                    Recibe avisos de tus actividades
+                    pendientes y administra mejor
+                    tu tiempo de estudio.
+                </p>
+            </div>
+
         </div>
 
     </section>
